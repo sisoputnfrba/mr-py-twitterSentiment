@@ -154,7 +154,7 @@ if __name__ == "__main__":
     text = ""
 
     for line in fileinput.input():
-	text = text + line
+	text = text + line.rstrip('\n')
 
     splitter = Splitter()
     postagger = POSTagger()
@@ -162,16 +162,16 @@ if __name__ == "__main__":
                                     'dicts/inc.yml', 'dicts/dec.yml', 'dicts/inv.yml'])
 
     splitted_sentences = splitter.split(text)
-    pprint(splitted_sentences)
+    #pprint(splitted_sentences)
 
     pos_tagged_sentences = postagger.pos_tag(splitted_sentences)
-    pprint(pos_tagged_sentences)
+    #pprint(pos_tagged_sentences)
 
     dict_tagged_sentences = dicttagger.tag(pos_tagged_sentences)
-    pprint(dict_tagged_sentences)
+    #pprint(dict_tagged_sentences)
 
-    print("analyzing sentiment...")
+    #print("analyzing sentiment...")
     score = sentiment_score(dict_tagged_sentences)
-    print(score)
+    print(text + "," + str(score))
 
 
