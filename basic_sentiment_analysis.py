@@ -150,28 +150,25 @@ if __name__ == "__main__":
     #lack of atmosphere and too expensive. I am a staunch vegetarian and was 
     #sorely dissapointed with the veggie options on the menu. Will be the last 
     #time I visit, I recommend others to avoid."""
-
     text = ""
-
-    for line in fileinput.input():
-	text = text + line.rstrip('\n')
 
     splitter = Splitter()
     postagger = POSTagger()
     dicttagger = DictionaryTagger([ 'dicts/positive.yml', 'dicts/negative.yml', 
                                     'dicts/inc.yml', 'dicts/dec.yml', 'dicts/inv.yml'])
 
-    splitted_sentences = splitter.split(text)
-    #pprint(splitted_sentences)
+    for line in fileinput.input():
+	csvline = line.rstrip('\n')
 
-    pos_tagged_sentences = postagger.pos_tag(splitted_sentences)
-    #pprint(pos_tagged_sentences)
+	text_parts = csvline.split(',')
+	text = text_parts[5]
 
-    dict_tagged_sentences = dicttagger.tag(pos_tagged_sentences)
-    #pprint(dict_tagged_sentences)
-
-    #print("analyzing sentiment...")
-    score = sentiment_score(dict_tagged_sentences)
-    print(text + "," + str(score))
+	fecha = text_parts[0].split(' ')
+	
+	splitted_sentences = splitter.split(text)
+	pos_tagged_sentences = postagger.pos_tag(splitted_sentences)
+	dict_tagged_sentences = dicttagger.tag(pos_tagged_sentences)
+	score = sentiment_score(dict_tagged_sentences)
+	print(fecha[0] + "," + text_parts[3] + "," + text_parts[4] + "," + text + "," + str(score))
 
 
