@@ -154,8 +154,8 @@ if __name__ == "__main__":
 
     splitter = Splitter()
     postagger = POSTagger()
-    dicttagger = DictionaryTagger([ 'dicts/positive.yml', 'dicts/negative.yml', 
-                                    'dicts/inc.yml', 'dicts/dec.yml', 'dicts/inv.yml'])
+    dicttagger = DictionaryTagger([ '/home/utnso/mr-py-twitterSentiment/dicts/positive.yml', '/home/utnso/mr-py-twitterSentiment/dicts/negative.yml', 
+                                    '/home/utnso/mr-py-twitterSentiment/dicts/inc.yml', '/home/utnso/mr-py-twitterSentiment/dicts/dec.yml', '/home/utnso/mr-py-twitterSentiment/dicts/inv.yml'])
 
     for line in fileinput.input():
 	csvline = line.rstrip('\n')
