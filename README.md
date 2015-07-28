@@ -11,7 +11,7 @@ Also added support for stdin to convert into a MapReduce job
 ## Configuration
 
 - python 
-	- (inside python)
+	- (inside python console)
 	- import nltk
 	- nltk.download('punkt')
 	- nltk.download('maxent_treebank_pos_tagger')
