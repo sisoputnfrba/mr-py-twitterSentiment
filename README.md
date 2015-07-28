@@ -4,17 +4,20 @@ Also added support for stdin to convert into a MapReduce job
 
 ## Installation
 
-- sudo apt-get install python-pip
-- sudo pip install nltk
-- sudo pip install pyyaml
+```
+sudo apt-get install python-pip
+sudo pip install nltk
+sudo pip install pyyaml
+./configure.py
+```
 
-## Configuration
+If the `configure.py` script fails, fire up `python` from a console and type:
 
-- python 
-	- (inside python console)
-	- import nltk
-	- nltk.download('punkt')
-	- nltk.download('maxent_treebank_pos_tagger')
+```python
+import nltk
+nltk.download('punkt')
+nltk.download('maxent_treebank_pos_tagger')
+```
 
 ## Usage
 
