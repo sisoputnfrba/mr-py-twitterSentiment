@@ -5,9 +5,8 @@ Also added support for stdin to convert into a MapReduce job
 ## Installation
 
 ```
-sudo apt-get install python-pip
-sudo pip install nltk
-sudo pip install pyyaml
+sudo apt-get install python-pip python-dev
+sudo pip install nltk pyyaml numpy
 ./configure.py
 ```
 
